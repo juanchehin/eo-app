@@ -1,0 +1,7 @@
+{
+  "name": "eo-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
