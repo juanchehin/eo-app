@@ -14,7 +14,7 @@ class ProductosRoutes {
 
     config(): void {
         // Listar
-        this.router.get('/calles/listar/', mdAutenticacion.verificaToken , productosController.dameProductos);
+        this.router.get('/productos/listar/', productosController.dameProductos);
     }
 
 }

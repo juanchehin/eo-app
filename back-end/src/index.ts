@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
 
 // Rutas
 app.use('/', indexRoutes);
-app.use('/api/personas', productosRoutes);
+app.use('/api/productos', productosRoutes);
 
 app.set('port', process.env.PORT || 3000);
 
