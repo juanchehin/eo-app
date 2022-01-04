@@ -7,14 +7,15 @@ class CategoriasController {
 // ==================================================
 //        Lista las categorias desde la BD
 // ==================================================
-    public async listar_categorias( res: Response): Promise<void> {
-        console.log("listar_categorias en back");
+    public async listar_categorias(req: Request, res: Response): Promise<void> {
+
         const categorias = await pool.query('call bsp_listar_categorias()');
+        console.log("categorias es : " , categorias);
 
         res.json(categorias);
     }
-    
 }
+
 
 const categoriasController = new CategoriasController;
 export default categoriasController;
