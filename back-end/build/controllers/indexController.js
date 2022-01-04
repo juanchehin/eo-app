@@ -1,13 +1,10 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.indexController = void 0;
-var IndexController = /** @class */ (function () {
-    function IndexController() {
-    }
-    IndexController.prototype.index = function (req, res) {
+class IndexController {
+    index(req, res) {
         res.json({ text: 'API is in /api/personas' });
-    };
-    return IndexController;
-}());
+    }
+}
 exports.indexController = new IndexController;
-exports["default"] = exports.indexController;
+exports.default = exports.indexController;

@@ -1,19 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
 import pool from '../database';
 
-
 class CategoriasController {
 
 // ==================================================
 //        Lista las categorias desde la BD
 // ==================================================
-    public async listar_categorias(req: Request, res: Response): Promise<void> {
+public async listar_categorias(req: Request, res: Response): Promise<void> {
 
-        const categorias = await pool.query('call bsp_listar_categorias()');
-        console.log("categorias es : " , categorias);
+    const categorias: any = await pool.query('call bsp_listar_categorias()');
 
-        res.json(categorias);
-    }
+    res.json(categorias[0][0]);        
+}
+
 }
 
 

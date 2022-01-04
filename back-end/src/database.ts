@@ -1,5 +1,4 @@
-import mysql from 'mysql';
-// var mysql = require('mysql');
+import mysql from 'mysql2/promise';
 import keys from './keys';
 
 // const pool = mysql.createPool(keys.database);
@@ -7,25 +6,11 @@ import keys from './keys';
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: ''
+    password: '',
+    database: 'eo-app'
 });
 
-pool.getConnection((err, connection) => {
-    if (err) {
-     console.log('Error de conexion : ', err);
-     // resolve(err);
-    } else {
-        // pool.releaseConnection(connection);
-        console.log('Conexion de BD exitosa ');
-    }
-   });
-
-// pool.getConnection((err, connection) => {
-//     .then(connection => {
-//         pool.releaseConnection(connection);
-//         console.log('Base de datos conectada');
-//     })
-// });
+pool.getConnection().then((connection) => {}).catch(error=>console.log(error))
 
 
 export default pool;

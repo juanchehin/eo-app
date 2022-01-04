@@ -1,7 +1,7 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 require('dotenv').config();
-exports["default"] = {
+exports.default = {
     database: {
         host: process.env.DB_HOST,
         user: process.env.DB_USER,

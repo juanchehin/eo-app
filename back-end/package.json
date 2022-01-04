@@ -12,13 +12,13 @@
     "dependencies": {
         "dotenv": "^10.0.0",
         "express": "^4.17.2",
-        "mysql": "^2.18.1",
+        "mysql2": "^2.3.3",
         "nodemon": "^2.0.15",
-        "promise-mysql": "^5.0.4",
         "tsc": "^2.0.3"
     },
     "devDependencies": {
         "@types/express": "^4.17.13",
+        "@types/mysql": "^2.15.20",
         "@types/node": "^17.0.5"
     }
 }
