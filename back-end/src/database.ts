@@ -2,7 +2,13 @@ import mysql from 'mysql';
 // var mysql = require('mysql');
 import keys from './keys';
 
-const pool = mysql.createPool(keys.database);
+// const pool = mysql.createPool(keys.database);
+
+const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: ''
+});
 
 pool.getConnection((err, connection) => {
     if (err) {

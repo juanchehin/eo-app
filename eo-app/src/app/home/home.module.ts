@@ -7,12 +7,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-import { HomePage } from './home.page';
+import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: HomeComponent
   }
 ];
 
@@ -24,6 +24,6 @@ const routes: Routes = [
     // HomePageRoutingModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [HomeComponent]
 })
 export class HomePageModule {}

@@ -21,6 +21,5 @@ class ProductosController {
 }
 
 
-
 const productosController = new ProductosController;
 export default productosController;

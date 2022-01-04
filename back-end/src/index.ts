@@ -2,6 +2,7 @@ import express from 'express';
 
 import indexRoutes from './routes/indexRoutes';
 import productosRoutes from './routes/productosRoutes';
+import categoriasRoutes from './routes/categoriasRoutes';
 
 
 const app = express();
@@ -20,6 +21,8 @@ app.use(function(req, res, next) {
 // Rutas
 app.use('/', indexRoutes);
 app.use('/api/productos', productosRoutes);
+app.use('/api/categorias', categoriasRoutes);
+
 
 app.set('port', process.env.PORT || 3000);
 
