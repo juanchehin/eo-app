@@ -10,7 +10,7 @@ import { MarcasService } from '../services/marcas.service';
 
 export class MarcasComponent implements OnInit {
 
-  categorias: any;
+  marcas: any;
   IdCategoria;
 
 
@@ -33,7 +33,7 @@ dame_marcas_categorias() {
   this.marcasService.dame_marcas_categorias( this.IdCategoria)
              .subscribe( (resp: any) => {
 
-              this.categorias = resp;
+              this.marcas = resp[0][0];
             });
 }
 

@@ -14,10 +14,10 @@
         </ion-toolbar>
     </ion-header>
 
-    <ion-card>
+    <ion-card *ngFor="let marca of marcas">
         <ion-item>
             <!-- <img src="../../../src/assets/img/{{categoria.Categoria}} "> -->
-            <ion-label></ion-label>
+            <ion-label>{{marca.Marca}}</ion-label>
         </ion-item>
     </ion-card>
 </ion-content>

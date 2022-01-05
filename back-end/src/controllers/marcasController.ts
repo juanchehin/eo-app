@@ -10,15 +10,9 @@ class MarcasController {
 
     public async dame_marcas_categorias(req: Request, res: Response): Promise<void> {
 
-        console.log("req es ; ",req.params);
-
-        var pIdCategoria:any = req.params.idCategoria;
-
-        console.log("pIdCategoria es ; ",pIdCategoria);
+        var pIdCategoria = req.params.idCategoria;
 
         const marcas = await pool.query('call bsp_listar_marcas_categoria(?)',pIdCategoria);
-
-        console.log("marcas es ; ",marcas);
 
         res.json(marcas);
     }
