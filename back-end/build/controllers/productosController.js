@@ -14,6 +14,14 @@ class ProductosController {
         const productos = await database_1.default.query('call bsp_dame_productos_marca_categoria(?,?)', [idMarca, idCategoria]);
         res.json(productos);
     }
+    // ==================================================
+    // Obtiene un producto de la BD
+    // ==================================================
+    async dameProducto(req, res) {
+        var idProducto = req.params.idProducto;
+        const producto = await database_1.default.query('call bsp_dame_producto(?)', idProducto);
+        res.json(producto);
+    }
 }
 const productosController = new ProductosController;
 exports.default = productosController;
