@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
 
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     public categoriasService: CategoriasService
     ) { }
 
@@ -29,11 +28,7 @@ dame_categorias() {
   this.categoriasService.dame_categorias( )
              .subscribe( (resp: any) => {
 
-              console.log('resp en dame_categorias es : ', resp);
-
-              this.categorias = resp[0];
-
-
+              this.categorias = resp;
             });
 }
 

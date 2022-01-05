@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <!-- <ion-title>{{ folder }}</ion-title> -->
+        <ion-title>Categorias</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -16,8 +16,8 @@
 
     <ion-card *ngFor="let categoria of categorias">
         <ion-item>
-            <!-- <img src="categoria.src"> -->
-            <ion-label>{{ categoria.categoria }}</ion-label>
+            <!-- <img src="../../../src/assets/img/{{categoria.Categoria}}"> -->
+            <ion-label>{{ categoria.Categoria }}</ion-label>
         </ion-item>
     </ion-card>
 </ion-content>
