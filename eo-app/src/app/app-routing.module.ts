@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'marcas/categoria/:idCategoria',
     loadChildren: () => import('./marcas/marcas.module').then( m => m.MarcasPageModule)
+  },
+  {
+    path: 'productos/:idCategoria/:idMarca',
+    loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
   }
 ];
 

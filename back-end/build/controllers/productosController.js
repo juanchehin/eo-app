@@ -6,13 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class ProductosController {
     // ==================================================
-    //        Lista los productos desde cierto valor
+    // Lista los productos dada una marca y una categoria
     // ==================================================
-    async list(req, res) {
-        var desde = req.params.desde || 0;
-        desde = Number(desde);
-        const padron = await database_1.default.query('call bsp_listar_padron(?)', [desde]);
-        res.json(padron);
+    async dameProductosCategoriaMarca(req, res) {
+        var idCategoria = req.params.idCategoria;
+        var idMarca = req.params.idMarca;
+        const productos = await database_1.default.query('call bsp_dame_productos_marca_categoria(?,?)', [idMarca, idCategoria]);
+        res.json(productos);
     }
 }
 const productosController = new ProductosController;

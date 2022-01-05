@@ -5,7 +5,7 @@ BEGIN
 	/*
 	Permite listar las marcas de una categoria especifica seleccionada
     */
-    SELECT		m.Marca
+    SELECT		m.IdMarca,m.Marca,cm.IdCategoria
     FROM		marcas m
 	JOIN		categoriamarcas cm
     ON			m.IdMarca = cm.IdMarca

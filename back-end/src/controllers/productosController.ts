@@ -5,19 +5,18 @@ import pool from '../database';
 class ProductosController {
 
 // ==================================================
-//        Lista los productos desde cierto valor
+// Lista los productos dada una marca y una categoria
 // ==================================================
 
-    public async list(req: Request, res: Response): Promise<void> {
+public async dameProductosCategoriaMarca(req: Request, res: Response): Promise<void> {
 
-        var desde = req.params.desde || 0;
-        desde  = Number(desde);
+    var idCategoria = req.params.idCategoria;
+    var idMarca = req.params.idMarca;
 
-        const padron = await pool.query('call bsp_listar_padron(?)',[desde]);
+    const productos = await pool.query('call bsp_dame_productos_marca_categoria(?,?)',[idMarca,idCategoria]);
 
-        res.json(padron);
-    }
-    
+    res.json(productos);
+}
 }
 
 

@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Marcas</ion-title>
+        <ion-title>Productos</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -14,10 +14,11 @@
         </ion-toolbar>
     </ion-header>
 
-    <ion-card *ngFor="let marca of marcas">
-        <ion-item [routerLink]="['/productos', marca.IdCategoria , marca.IdMarca]">
+    <!-- Esto deberia abrir un modal -->
+    <ion-card *ngFor="let producto of productos">
+        <ion-item>
             <!-- <img src="../../../src/assets/img/{{categoria.Categoria}} "> -->
-            <ion-label>{{marca.Marca}}</ion-label>
+            <ion-label>{{producto.Producto}}</ion-label>
         </ion-item>
     </ion-card>
 </ion-content>

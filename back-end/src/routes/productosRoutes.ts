@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import productosController from '../controllers/productosController';
 
 class ProductosRoutes {
 
@@ -10,7 +11,7 @@ class ProductosRoutes {
 
     config(): void {
         // Listar
-        // this.router.get('/productos/listar/', productosController.dameProductos);
+        this.router.get('/:idMarca/:idCategoria', productosController.dameProductosCategoriaMarca);
     }
 
 }
