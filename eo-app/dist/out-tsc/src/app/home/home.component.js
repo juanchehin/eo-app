@@ -1,8 +1,7 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 let HomeComponent = class HomeComponent {
-    constructor(activatedRoute, categoriasService) {
-        this.activatedRoute = activatedRoute;
+    constructor(categoriasService) {
         this.categoriasService = categoriasService;
     }
     ngOnInit() {
@@ -14,8 +13,7 @@ let HomeComponent = class HomeComponent {
     dame_categorias() {
         this.categoriasService.dame_categorias()
             .subscribe((resp) => {
-            console.log('resp en dame_categorias es : ', resp);
-            this.categorias = resp[0];
+            this.categorias = resp;
         });
     }
 };

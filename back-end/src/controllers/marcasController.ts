@@ -8,11 +8,17 @@ class MarcasController {
 //        Lista las marcas por categoria
 // ==================================================
 
-    public async list(req: Request, res: Response): Promise<void> {
+    public async dame_marcas_categorias(req: Request, res: Response): Promise<void> {
 
-        var pIdCategoria = req.params.desde || 0;
+        console.log("req es ; ",req.params);
 
-        const marcas = await pool.query('call bsp_listar_marcas_categoria(?)',[pIdCategoria]);
+        var pIdCategoria:any = req.params.idCategoria;
+
+        console.log("pIdCategoria es ; ",pIdCategoria);
+
+        const marcas = await pool.query('call bsp_listar_marcas_categoria(?)',pIdCategoria);
+
+        console.log("marcas es ; ",marcas);
 
         res.json(marcas);
     }

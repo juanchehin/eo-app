@@ -10,6 +10,10 @@ const routes = [
     {
         path: 'home',
         loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    },
+    {
+        path: 'marcas/categoria/:idCategoria',
+        loadChildren: () => import('./marcas/marcas.module').then(m => m.MarcasPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
 
 const URL_SERVICIOS = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriasService {
+export class MarcasService {
 
-IdGrupoFamiliarActual: any;
 cuerpo: any;
-
 
   constructor(
     public http: HttpClient,
@@ -24,10 +22,12 @@ cuerpo: any;
 // ==================================================
 //   Carga todas las categorias desde la BD
 // ==================================================
-dame_categorias( ) {
+dame_marcas_categorias(IdCategoria ) {
 
-  let url = URL_SERVICIOS + '/categorias/listar';
-  console.log("pasa dame_categorias ", url);
+  let url = URL_SERVICIOS + '/marcas/categoria/' + IdCategoria;
+
+  console.log("url es : ", url);
+
   return this.http.get( url );
 
 }
