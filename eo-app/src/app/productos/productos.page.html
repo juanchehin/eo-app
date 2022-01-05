@@ -19,6 +19,12 @@
         <ion-item>
             <!-- <img src="../../../src/assets/img/{{categoria.Categoria}} "> -->
             <ion-label>{{producto.Producto}}</ion-label>
+            <!-- Colors -->
+            <ion-button color="primary" (click)="infoProductoModal(producto.IdProducto)">
+                <ion-icon name="information-circle-outline"></ion-icon>
+            </ion-button>
+
         </ion-item>
     </ion-card>
+
 </ion-content>

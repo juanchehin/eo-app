@@ -17,6 +17,19 @@ public async dameProductosCategoriaMarca(req: Request, res: Response): Promise<v
 
     res.json(productos);
 }
+
+// ==================================================
+// Obtiene un producto de la BD
+// ==================================================
+
+public async dameProducto(req: Request, res: Response): Promise<void> {
+
+    var idProducto = req.params.idProducto;
+
+    const producto = await pool.query('call bsp_dame_producto(?)',idProducto);
+
+    res.json(producto);
+}
 }
 
 

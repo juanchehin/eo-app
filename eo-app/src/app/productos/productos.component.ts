@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../services/productos.service';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from './modal/modal.page';
 
 
 @Component({
@@ -11,13 +13,15 @@ import { ProductosService } from '../services/productos.service';
 export class ProductosComponent implements OnInit {
 
   productos: any;
+  infoProducto;
   IdCategoria;
   IdMarca;
 
 
   constructor(
     public productosService: ProductosService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public modalController: ModalController
     ) { }
 
   ngOnInit() {
@@ -35,10 +39,37 @@ dame_productos_marca_categoria() {
   this.productosService.dame_productos_marca_categoria( this.IdMarca, this.IdCategoria)
              .subscribe( (resp: any) => {
 
-              console.log("resp es : ",resp);
-
               this.productos = resp[0][0];
             });
+}
+
+// ==================================================
+// Abre un modal para mostrar la informacion de un producto
+// ==================================================
+async infoProductoModal(IdProducto) {
+
+  this.productosService.dame_producto( IdProducto)
+             .subscribe( (resp: any) => {
+
+
+              this.infoProducto = resp[0][0];
+
+              console.log("infoProducto es : ",this.infoProducto);
+    });
+
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'Producto': 'Douglas Nike',
+        'Deposito': 'PLanta alta',
+        'Descripcion': 'Descripcion',
+        'Talle': 'L',
+        'Articulo': '1111'
+      }
+    });
+
+    return await modal.present();
 }
 
 }

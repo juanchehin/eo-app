@@ -30,4 +30,15 @@ dame_productos_marca_categoria(IdMarca,IdCategoria ) {
 
 }
 
+// ==================================================
+//   Lista los campos de un producto desde la BD
+// ==================================================
+dame_producto(IdProducto ) {
+
+  let url = URL_SERVICIOS + '/productos/' + IdProducto;
+
+  return this.http.get( url );
+
+}
+
 }
