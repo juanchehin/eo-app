@@ -13,7 +13,7 @@ class ProductosRoutes {
     config() {
         // Listar
         this.router.get('/:idMarca/:idCategoria', productosController_1.default.dameProductosCategoriaMarca);
-        this.router.get('/dame/:idProducto', productosController_1.default.dameProducto);
+        this.router.get('/dame', productosController_1.default.dameProducto);
     }
 }
 const productosRoutes = new ProductosRoutes();

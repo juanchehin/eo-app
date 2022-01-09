@@ -39,33 +39,50 @@ dame_productos_marca_categoria() {
   this.productosService.dame_productos_marca_categoria( this.IdMarca, this.IdCategoria)
              .subscribe( (resp: any) => {
 
+
               this.productos = resp[0][0];
+
+              console.log("productos : ",this.productos);
+
             });
 }
 
 // ==================================================
 // Abre un modal para mostrar la informacion de un producto
 // ==================================================
-async infoProductoModal(IdProducto) {
+infoProductoModal(IdProducto) {
+  console.log("infoProductoModal",IdProducto);
 
-  this.productosService.dame_producto( IdProducto)
-             .subscribe( (resp: any) => {
+  this.productosService.dame_producto(IdProducto)
+    .subscribe((resp: any) => {
 
+      console.log("subscribe : ");
 
-              this.infoProducto = resp[0][0];
+      this.infoProducto = resp[0][0][0];
 
-              console.log("infoProducto es : ",this.infoProducto);
+      console.log("infoProducto es : ", this.infoProducto);
+
+      this.modal(this.infoProducto);
     });
+
+
+}
+
+// ==================================================
+// Abre un modal para mostrar la informacion de un producto
+// ==================================================
+async modal(infoProducto: any) {
+  console.log("modal",infoProducto);
 
     const modal = await this.modalController.create({
       component: ModalPage,
       cssClass: 'my-custom-class',
       componentProps: {
-        'Producto': 'Douglas Nike',
-        'Deposito': 'PLanta alta',
-        'Descripcion': 'Descripcion',
-        'Talle': 'L',
-        'Articulo': '1111'
+        'Producto': infoProducto.Producto,
+        'Deposito': infoProducto.Deposito,
+        'Descripcion': infoProducto.Descripcion,
+        'Talle': infoProducto.Talle,
+        'Articulo': infoProducto.Articulo
       }
     });
 

@@ -11,6 +11,8 @@ class ProductosController {
     async dameProductosCategoriaMarca(req, res) {
         var idCategoria = req.params.idCategoria;
         var idMarca = req.params.idMarca;
+        console.log("idCategoria es : ", idCategoria);
+        console.log("idMarca es : ", idMarca);
         const productos = await database_1.default.query('call bsp_dame_productos_marca_categoria(?,?)', [idMarca, idCategoria]);
         res.json(productos);
     }
@@ -18,8 +20,9 @@ class ProductosController {
     // Obtiene un producto de la BD
     // ==================================================
     async dameProducto(req, res) {
-        var idProducto = req.params.idProducto;
-        const producto = await database_1.default.query('call bsp_dame_producto(?)', idProducto);
+        var idProducto = req.query.IdProducto;
+        console.log("idProducto dameProducto es : ", idProducto);
+        const producto = await database_1.default.query('call bsp_dame_producto(?);', idProducto);
         res.json(producto);
     }
 }

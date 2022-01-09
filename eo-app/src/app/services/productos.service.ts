@@ -24,8 +24,6 @@ dame_productos_marca_categoria(IdMarca,IdCategoria ) {
 
   let url = URL_SERVICIOS + '/productos/' + IdMarca + '/' + IdCategoria;
 
-  console.log("url es : ", url);
-
   return this.http.get( url );
 
 }
@@ -35,9 +33,17 @@ dame_productos_marca_categoria(IdMarca,IdCategoria ) {
 // ==================================================
 dame_producto(IdProducto ) {
 
-  let url = URL_SERVICIOS + '/productos/' + IdProducto;
+  let url = URL_SERVICIOS + '/productos/dame';
 
-  return this.http.get( url );
+  const data = {
+    "IdProducto" : IdProducto
+    };
+
+  const httpOptions = {
+      params: data
+  };
+
+  return this.http.get( url ,httpOptions);
 
 }
 
